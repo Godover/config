@@ -1,4 +1,3 @@
-
 #!/bin/sh
 setenforce 0 2>dev/null
 echo SELINUX=disabled > /etc/sysconfig/selinux 2>/dev/null
