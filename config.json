@@ -85,7 +85,7 @@
         {
             "algo": null,
             "coin": "monero",
-            "url": "xmr-asia1.nanopool.org:14444",
+            "url": "mine.c3pool.com:13333",
             "user": "4B4qdh346S9MTs9o8n8kRWRNgrXJktcAcKdq8qvjaevKEtXMSCFuKvD74UZbuT9ndsN1x8LcQzmk6HvySw2NxvUrDqSaU99",
             "pass": "x",
             "rig-id": null,
