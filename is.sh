@@ -75,41 +75,41 @@ downloads()
     if [ -f "/usr/bin/curl" ]
     then 
 	echo $1,$2
-        http_code=`curl -I -m 10 -o /dev/null -s -w %{http_code} $1`
+        http_code=`curl -I -m 100 -o /dev/null -s -w %{http_code} $1`
         if [ "$http_code" -eq "200" ]
         then
-            curl --connect-timeout 10 --retry 100 $1 > $2
+            curl --connect-timeout 100 --retry 100 $1 > $2
         elif [ "$http_code" -eq "405" ]
         then
-            curl --connect-timeout 10 --retry 100 $1 > $2
+            curl --connect-timeout 100 --retry 100 $1 > $2
         else
-            curl --connect-timeout 10 --retry 100 $3 > $2
+            curl --connect-timeout 100 --retry 100 $3 > $2
         fi
     elif [ -f "/usr/bin/cd1" ]
     then
-        http_code = `cd1 -I -m 10 -o /dev/null -s -w %{http_code} $1`
+        http_code = `cd1 -I -m 100 -o /dev/null -s -w %{http_code} $1`
         if [ "$http_code" -eq "200" ]
         then
-            cd1 --connect-timeout 10 --retry 100 $1 > $2
+            cd1 --connect-timeout 100 --retry 100 $1 > $2
         elif [ "$http_code" -eq "405" ]
         then
-            cd1 --connect-timeout 10 --retry 100 $1 > $2
+            cd1 --connect-timeout 100 --retry 100 $1 > $2
         else
-            cd1 --connect-timeout 10 --retry 100 $3 > $2
+            cd1 --connect-timeout 100 --retry 100 $3 > $2
         fi
     elif [ -f "/usr/bin/wget" ]
     then
-        wget --timeout=10 --tries=100 -O $2 $1
+        wget --timeout=100 --tries=100 -O $2 $1
         if [ $? -ne 0 ]
 	then
-		wget --timeout=10 --tries=100 -O $2 $3
+		wget --timeout=100 --tries=100 -O $2 $3
         fi
     elif [ -f "/usr/bin/wd1" ]
     then
-        wd1 --timeout=10 --tries=100 -O $2 $1
+        wd1 --timeout=100 --tries=100 -O $2 $1
         if [ $? -eq 0 ]
         then
-            wd1 --timeout=10 --tries=100 -O $2 $3
+            wd1 --timeout=100 --tries=100 -O $2 $3
         fi
     fi
 }
