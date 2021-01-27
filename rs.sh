@@ -77,4 +77,3 @@ then
 else
 	echo "root runing....."
 fi
-
